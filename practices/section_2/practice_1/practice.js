@@ -1,6 +1,5 @@
 function count_same_elements(collection) {
   //在这里写入代码
-  var sum=['a','e','h','t','f','c','g','b','d'];
   var sum_info=[
     {key: "a", count: 0},
     {key: "e", count: 0},
