@@ -1,44 +1,32 @@
 function create_updated_collection(collection_a, object_b) {
   //在这里写入代码
-  var collection_a_info = {};
-  var sum;//定义一个sum来合并所有信息
+  var sum={};
+  var sum_list=[];
   var test=true;
   for (i=0;i<collection_a.length;i++){
-    if (test){
-      collection_a_info.key='collection_a[i]';
-      collection_a_info.count=0;
+    if(test){
+      sum={key:collection_a[i],count:0};
       test=false;
     }
-    collection_a_info.count++;
-    if (collection_a[i]!=collection_a[i+1]){
-      sum=[sum,collection_a_info];
+    sum.count=sum.count+1;
+    if(collection_a[i]!=collection_a[i+1]){
+      sum_list.push(sum);
       test=true;
     }
   }
-  return sum;
-}
-/*
-  var sum_info=[
-    {key: "a", count: 0},
-    {key: "e", count: 0},
-    {key: "h", count: 0},
-    {key: "t", count: 0},
-    {key: "f", count: 0},
-    {key: "c", count: 0},
-    {key: "g", count: 0},
-    {key: "b", count: 0},
-    {key: "d", count: 0}
-  ];
-  for(i=0;i<sum_info.length;i++){
-    for(j=0;j<collection.length;j++){
-      if(sum_info[i].key==collection[j]){
-        sum_info[i].count=sum_info[i].count+1;
-      }
+//  sum_list就是C集合，下面与object_b中的value值进行比较;
 
+  value_b=object_b.value;//接受object_b传入的值，将他们简便化。
+  var num=0;//用于测试相似数据是否满3。
+  for(i=0;i<sum_list.length;i++){
+    for(j=0;j<value_b.length;j++){
+      if(sum_list[i].key==value_b[j]){
+        num=sum_list[i].count/3;
+        num=Math.floor(num);
+        sum_list[i].count=sum_list[i].count-num;
+      }
     }
   }
-  return sum_info;
+  return sum_list;
 }
-*/
-
 module.exports = create_updated_collection;
