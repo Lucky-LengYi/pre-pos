@@ -9,8 +9,8 @@ function collect_same_elements(collection_a, object_b) {
   }
 
   for (i=0;i<key.length;i++){
-    for(j=0;j<value.length;j++){
-      if(key[i]==value[j]){
+    for(y=0;y<value.length;y++){
+      if(key[i]==value[y]){
         same.push(key[i]);
       }
     }

@@ -10,9 +10,9 @@ function count_same_elements(collection) {
       test=false;
     }
     sum.count=sum.count+1;//统计相同字母的数量。
-    for(j=0;j<10;j++){
-      if(collection[i].indexOf(j)>-1){
-        sum.count=sum.count+j-1;
+    for(y=0;y<10;y++){
+      if(collection[i].indexOf(y)>-1){
+        sum.count=sum.count+y-1;
       }
     }
     if(collection[i]!=collection[i+1]){

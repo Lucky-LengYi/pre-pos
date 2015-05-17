@@ -18,12 +18,12 @@ function create_updated_collection(collection_a, object_b) {
 
   value_b=object_b.value;//接受object_b传入的值，将他们简便化。
   var num=0;//用于测试相似数据是否满3。
-  for(i=0;i<sum_list.length;i++){
-    for(j=0;j<value_b.length;j++){
-      if(sum_list[i].key==value_b[j]){
-        num=sum_list[i].count/3;
+  for(x=0;x<sum_list.length;x++){
+    for(y=0;y<value_b.length;y++){
+      if(sum_list[x].key==value_b[y]){
+        num=sum_list[x].count/3;
         num=Math.floor(num);
-        sum_list[i].count=sum_list[i].count-num;
+        sum_list[x].count=sum_list[x].count-num;
       }
     }
   }

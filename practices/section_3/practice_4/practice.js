@@ -12,9 +12,9 @@ function create_updated_collection(collection_a, object_b) {
       test=false;
     }
     sum.count=sum.count+1;//统计相同字母的数量。
-    for(j=0;j<10;j++){
-      if(collection_a[i].indexOf(j)>-1){
-        sum.count=sum.count+j-1;
+    for(y=0;y<10;y++){
+      if(collection_a[i].indexOf(y)>-1){
+        sum.count=sum.count+y-1;
       }
     }
     if(collection_a[i]!=collection_a[i+1]){
@@ -22,12 +22,12 @@ function create_updated_collection(collection_a, object_b) {
       test=true;
     }
   }
-  for(i=0;i<sum_list.length;i++){
-    for(j=0;j<value_b.length;j++){
-      if(sum_list[i].key==value_b[j]){
-        num=sum_list[i].count/3;
+  for(x=0;x<sum_list.length;x++){
+    for(z=0;z<value_b.length;z++){
+      if(sum_list[x].key==value_b[z]){
+        num=sum_list[x].count/3;
         num=Math.floor(num);
-        sum_list[i].count=sum_list[i].count-num;
+        sum_list[x].count=sum_list[x].count-num;
       }
     }
   }
