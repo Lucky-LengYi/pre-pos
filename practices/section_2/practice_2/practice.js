@@ -10,10 +10,11 @@ function count_same_elements(collection) {
       test=false;
     }
     sum.count=sum.count+1;//统计相同字母的数量。
-    for(j=0;j<10;j++)
+    for(j=0;j<10;j++){
       if(collection[i].indexOf(j)>-1){
         sum.count=sum.count+j-1;
       }
+    }
     if(collection[i]!=collection[i+1]){
       sum_list.push(sum);//将sum数据存入sum_list中。
       test=true;
