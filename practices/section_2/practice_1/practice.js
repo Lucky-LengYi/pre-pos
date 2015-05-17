@@ -1,25 +1,20 @@
 function count_same_elements(collection) {
-  //在这里写入代码
-  var sum_info=[
-    {key: "a", count: 0},
-    {key: "e", count: 0},
-    {key: "h", count: 0},
-    {key: "t", count: 0},
-    {key: "f", count: 0},
-    {key: "c", count: 0},
-    {key: "g", count: 0},
-    {key: "b", count: 0},
-    {key: "d", count: 0}
-  ];
-  for(i=0;i<sum_info.length;i++){
-    for(j=0;j<collection.length;j++){
-      if(sum_info[i].key==collection[j]){
-        sum_info[i].count=sum_info[i].count+1;
-      }
 
+  var sum={};
+  var sum_list=[];
+  var test=true;
+  for (i=0;i<collection.length;i++){
+    if(test){
+      sum={key:collection[i],count:0};
+      test=false;
+    }
+    sum.count=sum.count+1;
+    if(collection[i]!=collection[i+1]){
+      sum_list.push(sum);
+      test=true;
     }
   }
-  return sum_info;
+  return sum_list;
 }
 
 module.exports = count_same_elements;
