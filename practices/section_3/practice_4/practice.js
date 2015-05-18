@@ -32,7 +32,7 @@ function create_updated_collection(collection_a, object_b) {
     for(var y=0;y<sum_list.length;y++){
         for(var z=0;z<value.length;z++){
             if(sum_list[y].key===value[z]){
-              //判断是否满3，需要减少几个数。
+                //判断是否满3，需要减少几个数。
                 var reduction=sum_list[y].count/3;
                 reduction=Math.floor(reduction);
                 sum_list[y].count=sum_list[y].count-reduction;

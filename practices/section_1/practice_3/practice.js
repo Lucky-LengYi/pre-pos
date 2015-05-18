@@ -1,15 +1,15 @@
 function collect_same_elements(collection_a, object_b) {
-  //在这里写入代码
-  var same=[];//创建一个数组，来存储重复的数据。
-  var value=object_b.value;//取出object_b.value的值，存储用于比较。
-  for (i=0;i<collection_a.length;i++){
-    for(x=0;x<value.length;x++){
-      if(collection_a[i]==value[x]){
-        same.push(collection_a[i]);
-      }
+    //在这里写入代码
+    var same=[];//创建一个数组，来存储重复的数据。
+    var value=object_b.value;//取出object_b.value的值，存储用于比较。
+    for (i=0;i<collection_a.length;i++){
+        for(x=0;x<value.length;x++){
+            if(collection_a[i]==value[x]){
+                same.push(collection_a[i]);
+            }
+        }
     }
-  }
-  return same;
+    return same;
 }
 
 module.exports = collect_same_elements;
