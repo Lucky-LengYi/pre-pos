@@ -1,37 +1,43 @@
 function create_updated_collection(collection_a, object_b) {
-  //在这里写入代码
-  var sum={};//创建一个sun object来存储每一条相同字母和数量
-  var sum_list=[];//创建一个JSON数组来存放所有sum对象。
-  var test=true;
-  var num=0;//用于测试相似数据是否满3。
-  value_b=object_b.value;//接受object_b传入的值，将他们简化。
-  for (i=0;i<collection_a.length;i++){
-    if(test){
-      sum={key:collection_a[i].charAt(0),count:0};
-      //.charAt(0）是为了取出该数据的第一个字母。生成（替换上一条）一条sum数据。
-      test=false;
+    var sum_list=[];//创建一个JSON数组来存放所有sum对象。
+    var value=object_b.value;//创建一个数组，迎来存储object_b中需要比较的数据。
+    for (var i=0;i<collection_a.length;i++){
+
+        var sum={};//创建一个sun object来存储每一条相同字母和数量
+        var is_exist=false;//is_exist
+
+        //生成新数组。
+        for (var x=0;x<sum_list.length;x++){
+            if (sum_list[x].key===collection_a[i].substring(0, 1)){
+                if (collection_a[i].length > 2){
+                    sum_list[x].count=sum_list[x].count+parseInt(collection_a[i].substring(2));
+                }else{
+                    sum_list[x].count++;
+                }
+                is_exist = true;
+            }
+        }
+
+        if (!is_exist){
+            if (collection_a[i].length > 2){
+                sum={key:collection_a[i].charAt(0),count:parseInt(collection_a[i].substring(2))};
+            }else{
+                sum={key:collection_a[i].charAt(0),count:1};
+            }
+            sum_list.push(sum);
+        }
     }
-    sum.count=sum.count+1;//统计相同字母的数量。
-    for(y=0;y<10;y++){
-      if(collection_a[i].indexOf(y)>-1){
-        sum.count=sum.count+y-1;
-      }
+    //将新数组与objest.value进行比较。
+    for(var y=0;y<sum_list.length;y++){
+        for(var z=0;z<value.length;z++){
+            if(sum_list[y].key===value[z]){
+                var consult=sum_list[y].count/3;
+                consult=Math.floor(consult);
+                sum_list[y].count=sum_list[y].count-consult;
+            }
+        }
     }
-    if(collection_a[i]!=collection_a[i+1]){
-      sum_list.push(sum);//将sum数据存入sum_list中。
-      test=true;
-    }
-  }
-  for(x=0;x<sum_list.length;x++){
-    for(z=0;z<value_b.length;z++){
-      if(sum_list[x].key==value_b[z]){
-        num=sum_list[x].count/3;
-        num=Math.floor(num);
-        sum_list[x].count=sum_list[x].count-num;
-      }
-    }
-  }
-  return sum_list;
+    return sum_list;
 }
 
 module.exports = create_updated_collection;
