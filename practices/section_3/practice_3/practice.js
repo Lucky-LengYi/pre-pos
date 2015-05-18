@@ -32,9 +32,9 @@ function create_updated_collection(collection_a, object_b) {
   for(var y=0;y<sum_list.length;y++){
       for(var z=0;z<value.length;z++){
           if(sum_list[y].key===value[z]){
-              var consult=sum_list[y].count/3;
-              consult=Math.floor(consult);
-              sum_list[y].count=sum_list[y].count-consult;
+              var reduction=sum_list[y].count/3;
+              reduction=Math.floor(reduction);
+              sum_list[y].count=sum_list[y].count-reduction;
           }
       }
   }
